@@ -3,10 +3,10 @@
 ## Premissas assumidas
 - Não será possivel adicionar a data atual ou seja somente datas apos a atual:
 
-![Teste de envio com data atual/anterior](https://github.com/AbVini/SistemaDeLembretes/assets/114082138/b7d75f82-8ae6-49eb-8964-f461d31df00a)
+![Teste de envio com data atual/anterior](./gifs/Teste-data-atual.gif)
 - Não poderão ser adicionados campos vazios
 
-![Teste-campo-vazio](https://github.com/AbVini/SistemaDeLembretes/assets/114082138/47a4eed7-a062-49e0-9879-ccce8f097574)
+![Teste-campo-vazio](./gifs/Teste-campo-vazio.gif)
 
 - O Backend sempre retorna a lista atualizada de tarefas para as requisições exceto que seja feita a solicitação pelo metodo de busca por ID
 - O banco de dados utilizado é o SQL Server.
@@ -44,12 +44,12 @@
 
 ### Resultados finais: 
 
-![Teste-Funcional](https://github.com/AbVini/SistemaDeLembretes/assets/114082138/45014d42-b389-40d3-ad14-cc7e15ae734f)
+![Teste-Funcional](./gifs/Teste-Funcional.gif)
 
  E se caso ja existir algum lembrete em uma data?
  
-![Teste-data-Repetida](https://github.com/AbVini/SistemaDeLembretes/assets/114082138/1a583751-656b-46cc-8656-e337533d23f6)
+![Teste-data-Repetida](./gifs/Teste-data-Repetida.gif)
 
 E se eu quiser Excluir algum Lembrete?
 
-![Teste-Exclusao](https://github.com/AbVini/SistemaDeLembretes/assets/114082138/d8b339c6-2d0a-4ab5-9454-864de04633d4)
+![Teste-Exclusao](./gifs/Teste-Exclusao.gif)
