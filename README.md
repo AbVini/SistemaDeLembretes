@@ -29,7 +29,8 @@
 ### Execução do backend:
 1. Abra o projeto da API em uma IDE compatível com .NET Core.
 2. Abra o arquivo localizado na pasta Backend chamado `LembretesAPI.sln` e execute  o codigo. Isso iniciará a API na porta especificada no arquivo `launchsettings.json`.
-3.O resumo das funcionalidades da api esta disponivel em https://localhost:7270/swagger/index.html
+3. O resumo das funcionalidades da api esta disponivel em https://localhost:7270/swagger/index.html
+
 
 ### Execução do frontend:
 1. Abra o projeto do frontend em um editor de código, como Visual Studio Code.
