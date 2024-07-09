@@ -1,6 +1,5 @@
 ﻿using LembretesAPI.Data;
 using LembretesAPI.Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,7 +21,7 @@ namespace LembretesAPI.Controllers
         public async Task<ActionResult<List<Lembrete>>> GetAllLembretes()
         {
             var lembretes = await _context.lembretes.ToListAsync();
-                    
+
             return Ok(lembretes);
         }
 
@@ -40,9 +39,9 @@ namespace LembretesAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<List<Lembrete>>> AddLembrete(Lembrete lembrete)
         {
+           
             _context.lembretes.Add(lembrete);
             await _context.SaveChangesAsync();
-
 
             return Ok(await _context.lembretes.ToListAsync());
         }
