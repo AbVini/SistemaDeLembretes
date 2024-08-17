@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import styled from "styled-components";
 import { useLembreteContext } from "../../context/lembretes";
 
-const FormularioStyled = styled.form`
+interface FormularioStyledProps {
+    error: boolean;
+}
+
+const FormularioStyled = styled.form<FormularioStyledProps>`
     padding: .8rem 0;
     text-align: right;
     > button {
@@ -39,15 +43,15 @@ const FormularioStyled = styled.form`
 `;
 
 function Form() {
+
     const [titulo, setTitulo] = useState("");
     const [data, setData] = useState("");
     const [errorTitulo, setErrorTitulo] = useState("");
     const [errorData, setErrorData] = useState("");
     const { adicionarLembrete } = useLembreteContext();
 
-    async function aoEnviar(evento) {
+    async function aoEnviar(evento: FormEvent<HTMLFormElement>) {
         evento.preventDefault();
-
         // Limpa os erros antes de validar novamente
         setErrorTitulo("");
         setErrorData("");
@@ -78,7 +82,7 @@ function Form() {
     }
 
     return (
-        <FormularioStyled onSubmit={aoEnviar} error={errorTitulo || errorData}>
+        <FormularioStyled onSubmit={aoEnviar} error={errorTitulo.length > 0 || errorData.length > 0}>
             <div>
                 <label htmlFor="titulo">Titulo: </label>
                 <input type="text" id="titulo" value={titulo} onChange={evento => setTitulo(evento.target.value)} placeholder="Titulo do lembrete" />
