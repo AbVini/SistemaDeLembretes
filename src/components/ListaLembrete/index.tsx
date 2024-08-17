@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { useLembreteContext } from "../../context/lembretes.jsx";
-import CloseIcon from '../../assets/close.svg';
+import { useLembreteContext } from "../../context/lembretes";
+import CloseIcon from "../../assets/close.svg";
+import LembretePorData from "../../types/LembreteData";
 
 const ContainerLista = styled.div`
     > h2 {
@@ -24,13 +25,14 @@ const ContainerLista = styled.div`
     }
 `;
 
+
 // Componente responsável por renderizar a lista de lembretes
 function ListaDeLembretes() {
     // Importação do contexto e função de remoção de lembrete
     const { lembretes, removerLembrete } = useLembreteContext();
 
     // Agrupamento de lembretes por data
-    const lembretesPorData = lembretes.reduce((acc, lembrete) => {
+    const LembretesData = lembretes.reduce<LembretePorData>((acc, lembrete) => {
         const data = lembrete.data;
         if (!acc[data]) {
             acc[data] = [];
@@ -40,7 +42,7 @@ function ListaDeLembretes() {
     }, {});
 
     // Ordenação das datas
-    const datasOrdenadas = Object.keys(lembretesPorData).sort();
+    const datasOrdenadas = Object.keys(LembretesData).sort();
     // Array de nomes de meses para formatação da data
     const meses = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
 
@@ -56,14 +58,14 @@ function ListaDeLembretes() {
                         })}
                     </li>
                     {/* Mapeamento dos lembretes */}
-                    {lembretesPorData[data].map((lembrete) => (
+                    {LembretesData[data].map((lembrete) => (
                         <li key={lembrete.id}>
                             {lembrete.titulo}
                             <span
                                 className="delete-button"
                                 onClick={async () => removerLembrete(lembrete.id)}
                             >
-                               <img className="delete-button"  src={CloseIcon} alt="Icone para deletar lembrete" />
+                                <img className="delete-button" src={CloseIcon} alt="Icone para deletar lembrete" />
                             </span>
                         </li>
                     ))}
